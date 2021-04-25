@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="es">
     <head>
@@ -19,31 +17,44 @@
         <!-- As a heading -->
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" th:href="@{/}">
-                <img src="img/icono_barchi.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                Kranki Games Admin
+                <img th:src="@{/img/icono_barchi.png}" width="30" height="30" class="d-inline-block align-top" alt="">
+                Kranki Games
             </a>
-            <a th:href="@{/videojuego/crear}" class="btn btn-outline-success">Crear Juego</a>
             <form class="form-inline my-2 my-lg-0" th:action="@{/buscar}" >
                 <input autofocus="autofocus" name="q" class="form-control mr-sm-2" type="search" th:placeholder="${param.q}" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
 
-        <div class="container mt-4 vj-tamano">
-            <div class="row">
-                <div th:each="juego : ${videojuegos}" class="col-md-3 mb-4">
-                    <div class="card">
-                        <img th:src="${juego.imagenUrl}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 th:text="${juego.nombre}" class="card-title"></h5>
-                            <p>
-                                <a th:href="@{/videojuegosDistribuidor(ditribuidorId=${juego.distribuidor.id})}" class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></a>
-                            </p>
-                            <p th:text="${juego.descripcion}" class="card-text"></p>
-                            <a th:href= "@{/borrar(idJuego=${juego.id})}" class="btn btn-danger btn-block">Borrar Juego</a>
-                            <a th:href= "@{/actualizarJuego(idJuegoa=${juego.id})}" class="btn btn-warning mt-2 btn-block" >Editar datos del Juego</a>
+        <div class="container mt-4 vj-tamano ">
+            <div class="row justify-content-center text-center" >
+                <div  class="col-md-10 " >
+                    <h1>Actualizar  Juego</h1>
+                    <!--pongo el nombre que cree en el modelo-->
+                    <form method="POST" th:action="@{/videojuego/guardar}" th:object="${juegosA}"  >
+                        <!--nombre del juego-->
+                        <div class="form-group">
+                            <label for="nombre">Nombre del Juego</label>
+                            <input type="hidden" th:field="*{id}">
+                            <input type="text" class="form-control" id="nomjuego" th:field="*{nombre}">
                         </div>
-                    </div>
+                        <!--descripcion del juego-->
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <textarea class="form-control" id="descrip" rows="3" th:field="*{descripcion}"></textarea>
+                        </div>
+                        <div class="form-group ">
+                            <label for="url">Url del cover</label>
+                            <input type="text" class="form-control" id="imagUrl" th:field="*{imagenUrl}">
+                        </div>
+                        <div class="form-group">
+                            <label for="distribuidor">distribuidor</label>
+                            <select class="form-control" id="idbox" th:field="*{distribuidor}">
+                                <option th:each="dis : ${distribuidores}" th:value="${dis.id}" th:text="${dis.nombre}"></option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Actualizar y Guardar</button>
+                    </form>
                 </div>
 
             </div>

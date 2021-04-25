@@ -13,7 +13,7 @@ and open the template in the editor.
 
 /*img del mismo tamaño*/
 .vj-tamano .card img{
-    height: 325px;
-    object-fit: cover;
+    height: 300px;
+    /*object-fit: cover;*/
     
 }

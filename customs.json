@@ -8,6 +8,7 @@
         "th:each": {},
         "th:href": {},
         "th:placeholder": {},
-        "th:field": {}
+        "th:field": {},
+        "th:value": {}
     }
 }
