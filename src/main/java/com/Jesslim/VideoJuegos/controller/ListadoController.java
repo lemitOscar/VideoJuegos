@@ -34,10 +34,13 @@ public class ListadoController {
         model.addAttribute("videojuegos", juego);
         return "listado";
     }
-    
+    //buscador de la barra
     @RequestMapping("/buscar")
     public String busqueda(Model model, @RequestParam("q") String palabraJ){
         List<VideoJuego> juego = videojuegoService.buscador(palabraJ);
+        if (juego == null) {
+            return "noHayJuego";
+        }
         model.addAttribute("videojuegos", juego);
         return "listado";
     }

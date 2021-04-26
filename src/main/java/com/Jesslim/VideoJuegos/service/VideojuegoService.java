@@ -29,7 +29,13 @@ public class VideojuegoService {
 
     //metodo para buscar
     public List<VideoJuego> buscador(String palabraJ) {
-        return videojuegoRepository.buscarjuego(palabraJ);
+        List<VideoJuego> juego = videojuegoRepository.buscarjuego(palabraJ);
+        if (juego.isEmpty()) {
+            return null;
+        }else{
+            return videojuegoRepository.buscarjuego(palabraJ);
+        }
+        
     }
 
     //metodo para guradar el juego

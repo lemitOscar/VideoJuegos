@@ -24,25 +24,14 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
-        <div class="container mt-4 vj-tamano">
-            <div class="row">
-                <div th:each="juego : ${videojuegos}" class="col-md-3 mb-4">
-                    <div class="card">
-                        <img th:src="${juego.imagenUrl}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 th:text="${juego.nombre}" class="card-title"></h5>
-                            <p>
-                                <a th:href="@{/videojuegosDistribuidor(ditribuidorId=${juego.distribuidor.id})}" class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></a>
-                            </p>
-                            <p th:text="${juego.descripcion}" class="card-text"></p>
-                            <a th:href= "@{/borrar(idJuego=${juego.id})}" class="btn btn-danger btn-block">Borrar Juego</a>
-                            <a th:href= "@{/actualizarJuego(idJuegoa=${juego.id})}" class="btn btn-warning mt-2 btn-block" >Editar datos del Juego</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="container-xl mt-4">
 
-            </div>
+            <h1 class="text-center  mb-4">No se encontro ningún juego</h1>
+            <img src="/img/sinjuego.png" class="img-fluid" alt="...">
+
         </div>
+
+
 
         <!-- Optional JavaScript; choose one of the two! -->
 
