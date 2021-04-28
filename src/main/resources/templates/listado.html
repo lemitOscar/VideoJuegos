@@ -13,12 +13,22 @@
         <title>Kranki Games</title>
     </head>
     <body>
-        <!-- As a heading -->
-        <nav class="navbar navbar-dark bg-dark">
-            <a th:href="@{/videojuego/crear}" class="nav-link">Nuevo Juego</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" th:href="@{/}">
                 <img src="img/icono_barchi.png" width="30" height="30" class="d-inline-block align-top" alt=""> Kranki Games Admin</a>
-            <!--boton para nuevo juego-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a th:href="@{/videojuego/crear}" class="nav-link">Nuevo Juego</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/videojuego/crearDistribuidor}" class="nav-link">Nuevo Distribuidor</a>
+                    </li>
+                </ul>
+            </div>
             <form class="form-inline my-2 my-lg-0" th:action="@{/buscar}" >
                 <input autofocus="autofocus" name="q" class="form-control mr-sm-2" type="search" th:placeholder="${param.q}" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

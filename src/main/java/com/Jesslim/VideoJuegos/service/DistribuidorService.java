@@ -14,10 +14,14 @@ public class DistribuidorService {
         this.distribuidorRepository = distribuidorRepository;
     }
 
-//    metodo
-    
+
+    //metodo para buscar de manera ordenada
     public List<Distribuidor> buscar(){
         return distribuidorRepository.buscarDisOrder();
+    }
+    //metodo para insertar un nuevo distribuidor
+    public Distribuidor insertarDis(Distribuidor distribuidor){
+        return distribuidorRepository.save(distribuidor);
     }
     
 }
