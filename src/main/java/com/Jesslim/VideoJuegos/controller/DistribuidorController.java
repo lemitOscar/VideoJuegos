@@ -24,8 +24,6 @@ public class DistribuidorController {
     //link formulario distribuidor
     @RequestMapping("/videojuego/crearDistribuidor")
     public String fornewDistribuidor(Model model) {
-        
-        
         model.addAttribute("distribuidor", new Distribuidor());
         return "formDistribuidor";
     }
