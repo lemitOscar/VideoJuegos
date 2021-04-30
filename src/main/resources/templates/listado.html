@@ -13,9 +13,10 @@
         <title>Kranki Games</title>
     </head>
     <body>
+        <!--------------------------------------------------------------menu de navegacion-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" th:href="@{/}">
-                <img src="img/icono_barchi.png" width="30" height="30" class="d-inline-block align-top" alt=""> Kranki Games Admin</a>
+                <img src="/img/icono_barchi.png" width="30" height="30" class="d-inline-block align-top" alt=""> Kranki Games Admin</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -27,6 +28,9 @@
                     <li class="nav-item">
                         <a th:href="@{/videojuego/crearDistribuidor}" class="nav-link">Nuevo Distribuidor</a>
                     </li>
+                    <li class="nav-item">
+                        <a th:href="@{/videojuego/listaDistribuidor}" class="nav-link">Ver Distribuidores</a>
+                    </li>
                 </ul>
             </div>
             <form class="form-inline my-2 my-lg-0" th:action="@{/buscar}" >
@@ -34,6 +38,7 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
+        <!---------------------------------------------------------------------------------fin del menu-->
         <div class="container mt-4 vj-tamano">
             <div class="row">
                 <div th:each="juego : ${videojuegos}" class="col-md-3 mb-4">
@@ -42,7 +47,8 @@
                         <div class="card-body">
                             <h5 th:text="${juego.nombre}" class="card-title"></h5>
                             <p>
-                                <a th:href="@{/videojuegosDistribuidor(ditribuidorId=${juego.distribuidor.id})}" class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></a>
+                                <a th:href="@{/videojuegosDistribuidor(ditribuidorId=${juego.distribuidor.id})}" 
+                                   class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></a>
                             </p>
                             <p th:text="${juego.descripcion}" class="card-text"></p>
                             <a th:href= "@{/borrar(idJuego=${juego.id})}" class="btn btn-danger btn-block">Borrar Juego</a>

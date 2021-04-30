@@ -10,7 +10,7 @@
         <title>Hello, world!</title>
     </head>
     <body>
-        <!--------------------------------------------------------------menu de navegacion------------------------------------------------------------->
+       <!--------------------------------------------------------------menu de navegacion-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" th:href="@{/}">
                 <img src="/img/icono_barchi.png" width="30" height="30" class="d-inline-block align-top" alt=""> Kranki Games Admin</a>
@@ -25,6 +25,9 @@
                     <li class="nav-item">
                         <a th:href="@{/videojuego/crearDistribuidor}" class="nav-link">Nuevo Distribuidor</a>
                     </li>
+                    <li class="nav-item">
+                        <a th:href="@{/videojuego/listaDistribuidor}" class="nav-link">Ver Distribuidores</a>
+                    </li>
                 </ul>
             </div>
             <form class="form-inline my-2 my-lg-0" th:action="@{/buscar}" >
@@ -32,8 +35,7 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
-        <!--------------------------------------------------------------------fin del menu------------------------------------------------------------>
-
+        <!---------------------------------------------------------------------------------fin del menu-->
         <!--------------------------------------------------formulario distribuidor------------------------------------------------------------------->
         <div class="container mt-4 vj-tamano ">
             <div class="row justify-content-center text-center" >

@@ -19,7 +19,7 @@ public class ListadoController {
         this.videojuegoService = videojuegoservice;
     }
     
-    
+    //devuleve los distribuidores ordenados
     @RequestMapping("/")
     public String listaVideoJuegos(Model model){
         List<VideoJuego> destacados = videojuegoService.buscarDestacado();
@@ -27,7 +27,7 @@ public class ListadoController {
         //busqueda de video juegos
         return "listado";
     }
-    
+    //cuando selecciono un distribuidor y solo me muestra esos
     @RequestMapping("/videojuegosDistribuidor")
     public String listaDeVideojuegosDistribuidor(int ditribuidorId, Model model){
         List<VideoJuego> juego = videojuegoService.buscarPorDistri(ditribuidorId);

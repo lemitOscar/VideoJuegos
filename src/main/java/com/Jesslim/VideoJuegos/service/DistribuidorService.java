@@ -15,7 +15,7 @@ public class DistribuidorService {
     }
 
 
-    //metodo para buscar de manera ordenada
+    //metodo para buscar de manera ordenada    //metodo que resgresa la lista de distribuidores ordenada
     public List<Distribuidor> buscar(){
         return distribuidorRepository.buscarDisOrder();
     }
@@ -23,5 +23,8 @@ public class DistribuidorService {
     public Distribuidor insertarDis(Distribuidor distribuidor){
         return distribuidorRepository.save(distribuidor);
     }
+    
+ 
+    
     
 }

@@ -3,6 +3,7 @@ package com.Jesslim.VideoJuegos.controller;
 import static com.Jesslim.VideoJuegos.VideoJuegosApplication.logger;
 import com.Jesslim.VideoJuegos.domain.Distribuidor;
 import com.Jesslim.VideoJuegos.service.DistribuidorService;
+import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,14 @@ public class DistribuidorController {
         distribuidorService.insertarDis(distribuidor);
         return "redirect:/";
 
+    }
+    
+    //metodo para listar los distriubidores
+    @RequestMapping("/videojuego/listaDistribuidor")
+    public String listarDistribuidor(Model model){
+        List<Distribuidor> lisDist =  distribuidorService.buscar();
+        model.addAttribute("lisDist", lisDist);
+        return "listaDistribuidor";
     }
 
 }
