@@ -5,10 +5,12 @@ import com.Jesslim.VideoJuegos.domain.Distribuidor;
 import com.Jesslim.VideoJuegos.service.DistribuidorService;
 import java.util.List;
 import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DistribuidorController {
 
-    private final DistribuidorService distribuidorService;
+    @Autowired
+    private  DistribuidorService distribuidorService;
 
-    public DistribuidorController(DistribuidorService distribuidorService) {
-        this.distribuidorService = distribuidorService;
-    }
+    
 
     //link formulario distribuidor
     @RequestMapping("/videojuego/crearDistribuidor")
@@ -38,7 +39,7 @@ public class DistribuidorController {
             return "formDistribuidor";
         }
         distribuidorService.insertarDis(distribuidor);
-        return "redirect:/";
+        return "redirect:/videojuego/listaDistribuidor";
 
     }
     
@@ -48,6 +49,20 @@ public class DistribuidorController {
         List<Distribuidor> lisDist =  distribuidorService.buscar();
         model.addAttribute("lisDist", lisDist);
         return "listaDistribuidor";
+    }
+    
+    //borrar un distribuidor
+    @RequestMapping("/deleteDistribuidor")
+    public String rDeleteDistri(int idDis){
+        distribuidorService.borrarDistribuidor(idDis);
+        return "redirect:/videojuego/listaDistribuidor";
+    }
+    
+    //update distribuidor
+    @GetMapping("/updateDistribuidor")
+    public String rUpdateDistri(int idDisA, Model model){
+        model.addAttribute("distribuidor", distribuidorService.idActualizarD(idDisA));
+        return "forDistribuidorUpdate";
     }
 
 }
