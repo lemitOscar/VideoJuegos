@@ -1,0 +1,16 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:text": {},
+        "th:if": {},
+        "integrity": {},
+        "th:src": {},
+        "th:action": {},
+        "th:errors": {},
+        "th:each": {},
+        "th:href": {},
+        "th:placeholder": {},
+        "th:field": {},
+        "th:value": {}
+    }
+}

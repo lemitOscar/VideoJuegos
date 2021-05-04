@@ -9,12 +9,11 @@ and open the template in the editor.
 */
 .vj-tamano .card {
     height: 100%;
-    width: 98%;
 }
 
 /*img del mismo tamaño*/
 .vj-tamano .card img{
-    height: 295px;
+    height: 300px;
     object-fit: cover;
     
 }
