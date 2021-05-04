@@ -1,6 +1,6 @@
 package com.Jesslim.VideoJuegos.controller;
 
-import static com.Jesslim.VideoJuegos.VideoJuegosApplication.logger;
+
 import com.Jesslim.VideoJuegos.domain.VideoJuego;
 import com.Jesslim.VideoJuegos.service.DistribuidorService;
 import com.Jesslim.VideoJuegos.service.VideojuegoService;
