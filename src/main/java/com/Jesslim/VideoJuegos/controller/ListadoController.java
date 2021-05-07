@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import javax.imageio.metadata.IIOMetadataFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -81,6 +84,7 @@ public class ListadoController {
 		model.addAttribute("siguiente", page + 2);
 		model.addAttribute("atras", page);
 		model.addAttribute("ultima", totalPage);
+		
 		return "listado";
 	}
 

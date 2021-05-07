@@ -48,7 +48,9 @@
 			</button>
 		</form>
 	</nav>
-	<!---------------------------------------------------------------------------------fin del menu-->
+
+	<!----------------------------------------------------------------- aqui se muestran los juegos -->
+
 	<div class="container mt-4 vj-tamano">
 		<div class="row justify-content-center">
 			<div th:each="juego : ${videojuegos}" class="col-md-3 mb-4">
@@ -62,7 +64,7 @@
 							</a>
 						</p>
 						<p th:text="${juego.descripcion}" class="card-text"></p>
-						<a th:href="@{/borrar(idJuego=${juego.id})}" class="btn btn-danger btn-block">Borrar Juego
+						<a th:href="@{/borrar(idJuego=${juego.id},pagi=${actual},videoj=${videojuegos} )}" class="btn btn-danger btn-block">Borrar Juego
 						</a>
 						<a th:href="@{/actualizarJuego(idJuegoa=${juego.id})}"
 							class="btn btn-warning mt-2 btn-block">Editar datos del Juego</a>
@@ -73,7 +75,7 @@
 	</div>
 	<!--  ---------------------------------------------       Inicio Paginacion -->
 
-	<nav aria-label="Page navigation example">
+	<nav aria-label="Page navigation example" >
 		<ul class="pagination justify-content-center">
 			<li class="page-item" th:classappend="${ atras ==0 ? 'disabled' : ''}">
 				<a class="page-link" th:if="${atras != null}" th:href="@{|/?page=${atras}|}" aria-label="Previous">
@@ -81,12 +83,12 @@
 				</a>
 			</li>
 
-			<li class="page-item" th:each="page : ${pages}" th:classappend=" ${ actual == page ? 'active' : '' } ">
-				<a class="page-link" th:href="@{|/?page=${page}|}" th:text="${page}"></a>
+			<li class="page-item" th:each="page : ${pages}" th:classappend=" ${ actual == page ? 'active' : '' }"  >
+				<a class="page-link" th:href="@{|/?page=${page}|}"  th:text="${page}"></a>
 			</li>
 
 			<li class="page-item" th:classappend="${actual == ultima ? 'disabled' : ''}">
-				<a class="page-link" th:if="${ siguiente != null}" th:href="@{|/?page=${ siguiente }|}"
+				<a class="page-link" th:if="${ siguiente != null}" th:href="@{|/?page=${ siguiente }|}" 
 					aria-label="Next">
 					<span aria-hidden="true">&raquo;</span>
 				</a>
