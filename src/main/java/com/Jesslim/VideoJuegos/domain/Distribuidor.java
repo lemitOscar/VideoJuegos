@@ -16,7 +16,7 @@ public class Distribuidor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotEmpty
+    //@NotEmpty
     private String nombre;
     @NotEmpty
     private String sitioWeb;

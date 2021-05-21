@@ -3,6 +3,8 @@ package com.Jesslim.VideoJuegos.controller;
 
 import com.Jesslim.VideoJuegos.domain.Distribuidor;
 import com.Jesslim.VideoJuegos.service.DistribuidorService;
+import com.Jesslim.VideoJuegos.validation.DistribuidorValidate;
+
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class DistribuidorController {
 
 	@Autowired
 	private DistribuidorService distribuidorService;
+	@Autowired
+	private DistribuidorValidate distribuidorValidate;
 
 	// link formulario distribuidor
 	@RequestMapping("/videojuego/crearDistribuidor")
@@ -32,6 +36,7 @@ public class DistribuidorController {
 	// en estos metodos valido de putazo
 	@PostMapping("/videojuego/crearDistribuidor/save")
 	public String forSaveDistribuidor(@Valid Distribuidor distribuidor, BindingResult result) {
+		distribuidorValidate.validate(distribuidor, result);
 		if (result.hasErrors()) {
 //            logger.info("si llego hasta aqui");
 			return "formDistribuidor";
