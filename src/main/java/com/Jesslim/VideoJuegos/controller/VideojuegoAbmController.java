@@ -84,4 +84,10 @@ public class VideojuegoAbmController {
 
     }
 
+
+    @RequestMapping("/cerrado")
+    public String cerrarhorario(){
+        return "pagecerrar";
+    }
+
 }

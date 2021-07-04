@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section th:fragment="intercepFragment">
+        <div class="alert alert-success"> 
+            <span th:text=" 'tiempo '+ ${tiempoTranscurridof}"></span>
+            <p th:text="${msnvista}"></p>
+        </div>
+    </section>
+</body>
+</html>
